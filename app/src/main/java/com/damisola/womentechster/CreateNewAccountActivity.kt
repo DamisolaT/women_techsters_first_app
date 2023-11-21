@@ -5,16 +5,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class LoginActivity : AppCompatActivity() {
+class CreateNewAccountActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_create_new_account)
 
-          var createNewButton:Button = findViewById(R.id.button)
-
-          createNewButton.setOnClickListener{
-            val i = Intent(this, CreateNewAccountActivity::class.java)
+        var sendToForgot: Button = findViewById(R.id.signUpButton)
+        sendToForgot.setOnClickListener{
+            val i = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(i)
         }
+
     }
 }
