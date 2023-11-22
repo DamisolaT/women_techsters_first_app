@@ -10,10 +10,11 @@ class CreateNewAccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_account)
 
-        var sendToForgot: Button = findViewById(R.id.signUpButton)
-        sendToForgot.setOnClickListener{
-            val i = Intent(this, ForgotPasswordActivity::class.java)
-            startActivity(i)
+          val alreadyAccount: Button = findViewById(R.id.alreadyButton)
+
+            alreadyAccount.setOnClickListener{
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
         }
 
     }

@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var joinButton = this.findViewById<Button>(R.id.joinNowButton)
+        val joinButton = this.findViewById<Button>(R.id.joinNowButton)
 
         joinButton.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
