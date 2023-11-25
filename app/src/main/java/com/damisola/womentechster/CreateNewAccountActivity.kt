@@ -10,7 +10,7 @@ class CreateNewAccountActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_new_account)
 
-          val alreadyAccount: Button = findViewById(R.id.alreadyButton)
+           val alreadyAccount: Button = findViewById(R.id.alreadyButton)
 
             alreadyAccount.setOnClickListener{
             val intent = Intent(this, LoginActivity::class.java)
