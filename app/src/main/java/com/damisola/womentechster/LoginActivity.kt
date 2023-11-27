@@ -6,9 +6,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
+
+
 
 class LoginActivity : AppCompatActivity() {
 
+
+    private fun navigateUpToPage() {
+        val intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,24 +42,32 @@ class LoginActivity : AppCompatActivity() {
                   //    val intent = Intent(this,HomeActivity::class.java)
                    //   startActivity(intent)
                  // }
-                val btnValidate: Button = findViewById(R.id.loginbutton)
 
-              val usernameEdit : EditText = findViewById(R.id.username)
-              val passwordEdit : EditText = findViewById(R.id.password)
+        // Week 6 Assessment Task
+                    val loginBtn: Button = findViewById(R.id.loginbutton)
+                    val usernameTxt : EditText = findViewById(R.id.username)
+                        val passwordTxt : EditText = findViewById(R.id.password)
 
-             btnValidate.setOnClickListener {
-                  val userNameEntered: String= usernameEdit.text.toString()
-                  val passWordEntered: String = passwordEdit.text.toString()
+                      loginBtn.setOnClickListener {
+                     val userNameTxt: String= usernameTxt.text.toString()
+                     val passWordTxt: String = passwordTxt.text.toString()
+                         var message: String= ""
 
-                   if (userNameEntered.isEmpty()){
-                     usernameEdit.error = "Username Required"
-                     return@setOnClickListener
-                 }else if (passWordEntered.isEmpty()){
-                     passwordEdit.error = "Password Require"
-                     return@setOnClickListener
-                 }else{
-                     Toast.makeText(this, " Complete Login",Toast.LENGTH_SHORT).show()
-                 }
+                         if(userNameTxt != "Damisola"){
+                             message = "wrong username"
+                         }else if(passWordTxt != "dami"){
+                             message ="Inavalid Password"
+
+                         }
+
+                  if (message.isNotEmpty()){
+                      Snackbar.make(
+                          findViewById(R.id.layout),
+                          message, Snackbar.LENGTH_LONG
+                      ).show()
+                  }else{
+                      navigateUpToPage()
+                  }
 
              }
 
